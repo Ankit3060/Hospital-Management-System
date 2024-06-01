@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import { dbConnection } from './database/dbConnection.js';
 import messageRouter from './router/messageRouter.js';
-import {errorMiddleware} from "./middlewares/errorMiddleware.js"
+import {errorMiddleware} from "./middlewares/errorMiddleware.js";
+import userRouter from "./router/userRouter.js"
 
 const app = express();
 // Load environment variables
@@ -29,8 +30,10 @@ app.use(fileUpload({
     tempFileDir: "/tmp/"
 }));
 
-
+//Routes
 app.use("/api/v1/message",messageRouter);
+app.use("/api/v1/user",userRouter);
+// app.use("/api/v1/user",userRouter);
 
 //Connecting to database
 dbConnection();
