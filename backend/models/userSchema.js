@@ -55,9 +55,15 @@ const userSchema = new mongoose.Schema({
         type : String
     },
     docAvatar : {
-        type : String,
-        url : String
-    },
+        public_id: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        }
+    }
     // message : {
     //     type : String,
     //     required : true,
