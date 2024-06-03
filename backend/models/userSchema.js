@@ -70,7 +70,7 @@ const userSchema = new mongoose.Schema({
     //     minLength : [10,"Message should be atleast 10 characters long"],
         
     // }
-})
+}, { timestamps: true })
 
 
 //Hashing password before saving user

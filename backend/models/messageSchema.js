@@ -27,6 +27,6 @@ const messageSchema = new mongoose.Schema({
         required : true,
         minLength : [10,"Message should be atleast 10 characters long"],
     }
-})
+}, { timestamps: true })
 
 export const Message = mongoose.model("Message",messageSchema);

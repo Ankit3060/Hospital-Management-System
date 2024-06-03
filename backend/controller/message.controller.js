@@ -2,6 +2,7 @@ import {Message} from "../models/messageSchema.js";
 import {catchAsyncError} from "../middlewares/catchAsyncError.js";
 import ErrorHandler from "../middlewares/errorMiddleware.js";
 
+//Sending the message to hospital
 export const sendMessage = catchAsyncError (async (req, res) => {
     const {firstName, lastName, email, phone, message} = req.body;
     if(!firstName || !lastName || !email || !phone || !message){
@@ -16,4 +17,13 @@ export const sendMessage = catchAsyncError (async (req, res) => {
         message
     })
     res.status(201).json({message : "Message sent successfully"});
+})
+
+//Get all messages
+export const getAllMessages = catchAsyncError(async(req, res) =>{
+    const messages = await Message.find();
+    res.status(200).json({
+        succeess:true,
+        messages
+    });
 })
