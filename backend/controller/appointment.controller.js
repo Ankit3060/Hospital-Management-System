@@ -21,6 +21,6 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
     })
 
     if(isConflict){
-        return next(new ErrorHandler("Doctor is already busy in that slot", 400))
+        return next(new ErrorHandler("Doctor is already assign in that slot", 400))
     }
 })
