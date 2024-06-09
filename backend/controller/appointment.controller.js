@@ -3,6 +3,7 @@ import ErrorHandler from "../middlewares/errorMiddleware.js";
 import { Appointment } from "../models/appointmentSchema.js";
 import { User } from "../models/userSchema.js";
 
+//Book an appointment
 export const postAppointment = catchAsyncError(async (req, res, next) => {
     const {firstName, lastName, email, phone, pan, dob,
         gender, appoinntment_date, department, doctor_firstName,
@@ -11,7 +12,7 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
 
     if(!firstName || !lastName || !email || !phone || !pan || !dob || 
         !gender || !appoinntment_date || !department || !doctor_firstName ||
-        !doctor_lastName || !hasVisited || !address){
+        !doctor_lastName || !address){
         return next(new ErrorHandler("Please fill all the fields", 400))
         }
 
@@ -33,10 +34,9 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
     const patientId = req.user._id;
 
     const appointment = await Appointment.create({
-        firstName, lastName, email, phone, pan, dob,
-        gender, appoinntment_date, department, doctor_firstName,
-        doctor_lastName, hasVisited, address,
-        docot:{
+        firstName, lastName, email, phone, pan, dob,patientId,doctorId,
+        gender, appoinntment_date, department, hasVisited, address,
+        doctor:{
             firstName: doctor_firstName,
             lastName: doctor_lastName}
         });
@@ -45,5 +45,47 @@ export const postAppointment = catchAsyncError(async (req, res, next) => {
         success: true,
         message : "Appointment send successfully",
         appointment
+    })
+});
+
+//Get all appointments
+export const getAllAppointments = catchAsyncError(async (req, res, next) => {
+    const appointments = await Appointment.find()
+    res.status(200).json({
+        success: true,
+        appointments
+    })
+});
+
+//Update an appointment
+export const updateAppointment = catchAsyncError(async (req, res, next) => {
+    const {id} = req.params;
+    let appointment = await Appointment.findById(id);
+    if(!appointment){
+        return next(new ErrorHandler("Appointment not found", 404))
+    }
+    appointment = await Appointment.findByIdAndUpdate(id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    });
+    res.status(200).json({
+        success: true,
+        message: "Appointment updated successfully",
+        appointment
+    })
+});
+
+//Delete an appointment
+export const deleteAppointment = catchAsyncError(async (req, res, next) => {
+    const {id} = req.params;
+    let appointment = await Appointment.findById(id);
+    if(!appointment){
+        return next(new ErrorHandler("Appointment not found", 404))
+    }
+    await appointment.deleteOne();
+    res.status(200).json({
+        success: true,
+        message: "Appointment deleted successfully"
     })
 })
