@@ -3,7 +3,7 @@ import {catchAsyncError} from "../middlewares/catchAsyncError.js";
 import ErrorHandler from "../middlewares/errorMiddleware.js";
 
 //Sending the message to hospital
-export const sendMessage = catchAsyncError (async (req, res) => {
+export const sendMessage = catchAsyncError (async (req, res, next) => {
     const {firstName, lastName, email, phone, message} = req.body;
     if(!firstName || !lastName || !email || !phone || !message){
         // return res.status(400).json({message : "All fields are required"});
