@@ -54,16 +54,10 @@ const userSchema = new mongoose.Schema({
     doctorDepartment : {
         type : String
     },
-    docAvatar : {
-        public_id: {
-            type: String,
-            required: true
-        },
-        url: {
-            type: String,
-            required: true
-        }
-    }
+    docAvatar: {
+        public_id: String,
+        url: String,
+    },
     // message : {
     //     type : String,
     //     required : true,
