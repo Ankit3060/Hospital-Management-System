@@ -160,7 +160,7 @@ function AppointmentForm() {
         />
         </div>
 
-        {/* This is the select box for doctor */}
+        {/* This is the select box for department of doctor */}
         <div>
             <select 
                 value={department} 
@@ -170,6 +170,7 @@ function AppointmentForm() {
                     setDoctorLastName("");    
                 }} 
             >
+                <option value="" disabled>Select Department </option>
                 {departmentArray.map((depart,index)=>{
                     return(
                         <option key={index} value={depart}>
@@ -178,6 +179,8 @@ function AppointmentForm() {
                     )
                 })}
             </select>
+
+            {/* This is select box for doctor */}
             <select 
                 value={`${doctorFirstName} ${doctorLastName}`}
                 onChange={(e)=>{
@@ -187,7 +190,7 @@ function AppointmentForm() {
                 }}
                 disabled={!department}
             >
-                <option value="">Select Doctor </option>
+                <option value="" >Select Doctor </option>
                 {
                     doctors.filter(doctor=>doctor.doctorDepartment === department).map((doctor,index)=>{
                         return(
