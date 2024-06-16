@@ -56,6 +56,8 @@ function Sidebar() {
     })
 }
 
+console.log("Sidebar - isAuthenticated:", isAuthenticated);
+
   return (
     <>
     <nav 

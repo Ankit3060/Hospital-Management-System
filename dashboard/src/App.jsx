@@ -29,7 +29,7 @@ function App() {
           }
         );
         setIsAuthenticated(true);
-        setUser(response.data.user);
+        setAdmin(response.data.user);
       } catch (error) {
         setIsAuthenticated(false);
         setAdmin({});
