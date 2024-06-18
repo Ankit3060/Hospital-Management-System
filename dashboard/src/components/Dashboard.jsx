@@ -1,7 +1,7 @@
 import React, { useContext, useState,useEffect } from 'react';
 import {Context} from "../main"
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { Navigate } from 'react-router-dom';
 import {GoCheckCircleFill} from "react-icons/go";
 import {AiFillCloseCircle} from "react-icons/ai";
@@ -105,8 +105,8 @@ function Dashboard() {
               <p>Hello ,</p>
               <h5>{admin && `${admin.firstName} ${admin.lastName}`}</h5>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laborum aut illo harum. Rerum, enim modi?
+            <p>Together, we are committed to excellence, innovation, and compassionate care, 
+              driving <br/>our hospital to new heights and transforming lives every day.
             </p>
           </div>
         </div>
@@ -166,7 +166,8 @@ function Dashboard() {
                                   <AiFillCloseCircle className='red'/>}</td>
                       <td><MdDelete 
                               onClick={()=>deleteAppointment(appointment._id)} 
-                              style={{cursor : "Pointer"}}/>
+                              style={{cursor : "Pointer"}}
+                              className='delete'/>
                       </td>
                     </tr>
                   )

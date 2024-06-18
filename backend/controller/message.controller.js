@@ -27,3 +27,17 @@ export const getAllMessages = catchAsyncError(async(req, res) =>{
         messages
     });
 })
+
+//Delete message
+export const deleteMessage = catchAsyncError(async(req,res,next)=>{
+    const {id} = req.params;
+    let message = await Message.findById(id);
+    if(!message){
+        return next(new ErrorHandler("Message not found",404));
+    }
+    await message.deleteOne();
+    res.status(200).json({
+        success:true,
+        message: "Message deleted successfully"
+    })
+})

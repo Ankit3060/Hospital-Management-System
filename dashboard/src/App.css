@@ -574,3 +574,17 @@ input[type="time"]:before {
   color: #444;
   margin-right: 0.5em;
 }
+
+
+.delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #454040; 
+  font-size: 2rem;
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+.delete:hover {
+  transform: rotate(20deg); /* Rotate the icon on hover */
+}

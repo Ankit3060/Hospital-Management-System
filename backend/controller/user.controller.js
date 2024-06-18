@@ -179,3 +179,16 @@ export const addNewDoctor = catchAsyncError(async(req, res, next) =>{
         success:true,
         message : "Doctor added successfully", doctor});
 })
+
+//Delete doctor
+export const deleteDoctor = catchAsyncError(async(req, res, next) =>{
+    const {id} = req.params;
+    const doctor = await User.findById(id);
+    if(!doctor){
+        return next(new ErrorHandler("Doctor not found",404));
+    }
+    await doctor.deleteOne();
+    res.status(200).json({
+        success:true,
+        message : "Doctor deleted successfully"});
+})

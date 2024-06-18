@@ -3,6 +3,7 @@ import { Context } from '../main';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { MdDelete } from "react-icons/md";
 
 function Doctors() {
   const [doctors,setDoctors]  = useState();
@@ -25,6 +26,23 @@ function Doctors() {
     }
     fetchDoctors();
   }, [])
+
+  // Delete doctor
+  const handleDelete = async(doctorId)=>{
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/api/v1/user/doctor/delete/${doctorId}`,
+        {
+          withCredentials: true
+        }
+      );
+      setDoctors(previousDoctors=>previousDoctors.filter(doctor=>
+                  doctor._id !== doctorId));
+      toast.success(response.data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  }
 
   if(!isAuthenticated){
     return <Navigate to =  {"/login"} />
@@ -55,6 +73,10 @@ function Doctors() {
                 <p>Department : <span>{element.doctorDepartment}</span></p>
                 <p>PAN : <span>{element.pan}</span></p>
                 <p>Gender : <span>{element.gender}</span></p>
+                {/* <button onClick={() => handleDelete(element._id)}>Delete</button> */}
+                <MdDelete onClick={()=>handleDelete(element._id)} 
+                          style={{cursor : "Pointer"}}
+                          className='delete'/>
               </div>
               </div>  
             )
