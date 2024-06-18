@@ -62,7 +62,7 @@ function Footer() {
                     hours.map((hour) => (
                         // <p key={hour.id}>{hour.day}: {hour.time}</p>
                         <li key={hour.id}>
-                            <span>{hour.day}:{hour.time}</span>
+                            <span>{hour.day} : {hour.time}</span>
                         </li>
                     ))
                 }
@@ -76,7 +76,10 @@ function Footer() {
                 </div>
                 <div>
                     <MdEmail />
-                    <span>ankit330660@gmail.com</span>
+                    <a  href="mailto:ankit330660@gmail.com"
+                        style={{ textDecoration: 'none', color: 'inherit' }}>
+                          ankit330660@gmail.com
+                    </a>
                 </div>
                 <div>
                     <FaLocationArrow />

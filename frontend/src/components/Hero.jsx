@@ -5,10 +5,11 @@ function Hero({title, imageUrl}) {
     <div className='hero container'>
         <div className="banner">
             <h1>{title}</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Exercitationem excepturi blanditiis repellat dolorum deserunt 
-                ratione corporis eius. Numquam sit ea, debitis ab atque similique 
-                laboriosam tempore accusamus consequatur unde non?
+            <p>At our hospital, we are dedicated to providing the highest quality of care with compassion 
+                and integrity. Our promise to you is a commitment to excellence in healthcare, where every 
+                patient is treated with dignity and respect. We strive to create a safe and supportive 
+                environment, ensuring your well-being and comfort throughout your healthcare journey. 
+                Your health is our priority, and we are here to support you every step of the way.
             </p>
         </div>
         <div className="banner">

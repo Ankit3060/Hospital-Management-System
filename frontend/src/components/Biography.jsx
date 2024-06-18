@@ -6,34 +6,34 @@ function Biography({imageUrl}) {
         <div className="banner">
             <img src={imageUrl} alt="about" />
         </div>
-        <div className="banner">
+        <div className="banner cursive">
             <p>Biography</p>
             <h3>Who We Are</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ea asperiores ipsam fuga provident facere aut neque quibusdam, 
-                ex saepe alias suscipit explicabo quam consectetur dolores optio 
-                id facilis voluptatum maxime. Debitis placeat eos blanditiis ut 
-                sunt quae, laboriosam quas itaque consectetur at, inventore, minus 
-                molestiae temporibus maiores! Quis, ut voluptatem?
+                Welcome to our hospital, where your health and well-being are our top priorities. 
+                With a legacy of compassionate care and cutting-edge medical services, we are dedicated 
+                to providing exceptional healthcare to our community. Our team of highly skilled doctors, 
+                nurses, and support staff are committed to delivering personalized and comprehensive care 
+                tailored to each patient's unique needs.
             </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                At our hospital, we believe in a patient-centric approach, ensuring that you are at the 
+                heart of every decision we make. Our state-of-the-art facilities and advanced medical 
+                technologies enable us to offer a wide range of services, from routine check-ups to 
+                complex surgeries, all under one roof.
             </p>
             <p>
-                Lorem ipsum dolor sit amet.
+                Our mission is to create a healing environment where you feel safe, respected, and cared 
+                for. We strive to foster a culture of excellence, where every member of our team works 
+                tirelessly to achieve the best possible outcomes for our patients.
             </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Dicta non quasi molestiae deserunt facere perspiciatis dignissimos 
-                quisquam porro mollitia fugiat labore aliquam laudantium hic enim numquam, 
-                temporibus nostrum maiores, doloribus reiciendis animi cumque exercitationem soluta!
+                We are proud to be a trusted healthcare provider in the community, continually advancing 
+                our practices to meet the evolving needs of our patients. Your health journey is our 
+                priority, and we are here to support you every step of the way.
             </p>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat explicabo reprehenderit maiores.
-            </p>
-            <p>
-                Lorem, ipsum dolor.
+                Thank you for choosing our hospital. We are honored to be your partner in health.
             </p>
         </div>
 
